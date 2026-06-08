@@ -70,6 +70,7 @@ a {
 .brand,
 .site-nav,
 .hero-actions,
+.focus-tags,
 .footer-links {
   display: flex;
   align-items: center;
@@ -123,10 +124,10 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
   gap: var(--gap);
-  min-height: calc(100vh - 76px);
-  padding: clamp(64px, 10vw, 132px) 0 56px;
+  min-height: auto;
+  padding: clamp(52px, 8vw, 92px) 0 clamp(42px, 6vw, 72px);
   align-items: center;
   border-bottom: 1px solid var(--line);
 }
@@ -152,8 +153,8 @@ p {
 
 h1 {
   max-width: 840px;
-  margin-bottom: 24px;
-  font-size: clamp(42px, 8vw, 92px);
+  margin-bottom: 18px;
+  font-size: clamp(52px, 10vw, 116px);
   line-height: 1.04;
   font-weight: 500;
 }
@@ -175,13 +176,31 @@ h3 {
 .hero-text {
   max-width: 680px;
   color: #384047;
-  font-size: clamp(17px, 2vw, 21px);
+  font-size: clamp(17px, 1.8vw, 21px);
+}
+
+.focus-tags {
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.focus-tags li {
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  color: #30363a;
+  background: rgba(255, 254, 250, .66);
+  font-family: "Trebuchet MS", "Noto Sans SC", sans-serif;
+  font-size: 12px;
+  letter-spacing: .06em;
 }
 
 .hero-actions {
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .button {
@@ -217,26 +236,14 @@ h3 {
 }
 
 .profile-panel {
-  align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 420px;
-  padding: 22px;
+  min-height: 0;
+  padding: 24px;
   border: 1px solid var(--ink);
   background: rgba(255, 254, 250, .72);
-  box-shadow: 12px 12px 0 var(--accent-soft);
-}
-
-.avatar {
-  display: grid;
-  width: min(100%, 220px);
-  aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid var(--line);
-  color: var(--accent);
-  font-size: 92px;
-  line-height: 1;
+  box-shadow: 10px 10px 0 var(--accent-soft);
 }
 
 dl,
@@ -246,7 +253,7 @@ dd {
 
 .profile-panel dl {
   display: grid;
-  gap: 18px;
+  gap: 0;
 }
 
 dd {
@@ -254,7 +261,7 @@ dd {
 }
 
 .section {
-  padding: clamp(68px, 9vw, 116px) 0;
+  padding: clamp(58px, 8vw, 96px) 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -274,16 +281,17 @@ dd {
   font-size: 13px;
 }
 
-.two-column {
+.summary-strip {
   display: grid;
-  grid-template-columns: minmax(0, .95fr) minmax(280px, .75fr);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr);
   gap: var(--gap);
+  align-items: start;
 }
 
-.two-column > p {
+.summary-strip > p {
   max-width: 700px;
   color: #30363a;
-  font-size: clamp(18px, 2.4vw, 28px);
+  font-size: clamp(18px, 2.1vw, 25px);
   line-height: 1.55;
 }
 
@@ -312,37 +320,6 @@ dd {
   font-weight: 500;
 }
 
-.direction-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
-}
-
-.direction-grid article {
-  min-height: 260px;
-  padding: 22px;
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  background: rgba(255, 254, 250, .58);
-  transition: background .25s var(--ease), transform .25s var(--ease);
-}
-
-.direction-grid article:hover {
-  background: var(--paper);
-  transform: translateY(-4px);
-}
-
-.direction-grid span {
-  display: block;
-  margin-bottom: 58px;
-  color: var(--accent);
-  font-family: "Trebuchet MS", "Noto Sans SC", sans-serif;
-  font-size: 12px;
-  letter-spacing: .14em;
-}
-
-.direction-grid p,
 .line-card p {
   color: var(--muted);
 }
@@ -393,6 +370,141 @@ dd {
 .line-card time {
   display: inline-block;
   margin-bottom: 10px;
+}
+
+.publication-groups {
+  display: grid;
+  gap: clamp(32px, 5vw, 56px);
+}
+
+.publication-group {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 46px);
+  align-items: start;
+}
+
+.group-label {
+  position: sticky;
+  top: 88px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink);
+}
+
+.group-label span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-family: "Trebuchet MS", "Noto Sans SC", sans-serif;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.group-label h3 {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 34px);
+}
+
+.publication-list {
+  display: grid;
+  gap: 16px;
+}
+
+.publication-card {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 30px);
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--line);
+  background: rgba(255, 254, 250, .76);
+  transition: border-color .25s var(--ease), transform .25s var(--ease), background .25s var(--ease);
+}
+
+.publication-card:hover {
+  border-color: var(--ink);
+  background: var(--paper);
+  transform: translateY(-3px);
+}
+
+.publication-card.is-empty {
+  border-style: dashed;
+}
+
+.paper-cover {
+  display: grid;
+  min-height: 260px;
+  margin: 0;
+  place-items: center;
+  border: 1px solid var(--ink);
+  background:
+    linear-gradient(135deg, rgba(47, 111, 126, .12), transparent 46%),
+    repeating-linear-gradient(0deg, rgba(21, 23, 25, .055) 0 1px, transparent 1px 12px),
+    rgba(247, 248, 245, .82);
+}
+
+.paper-cover div {
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+
+.paper-cover span {
+  color: var(--accent);
+  font-family: "Trebuchet MS", "Noto Sans SC", sans-serif;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.paper-cover small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.paper-info {
+  min-width: 0;
+}
+
+.paper-info h3 {
+  margin-bottom: 12px;
+  font-size: clamp(20px, 2.5vw, 28px);
+}
+
+.paper-authors {
+  margin-bottom: 8px;
+  color: #30363a;
+}
+
+.paper-desc {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+.resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resource-links a {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: rgba(255, 254, 250, .58);
+  font-family: "Trebuchet MS", "Noto Sans SC", sans-serif;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.resource-links a:hover {
+  color: var(--paper);
+  background: var(--ink);
 }
 
 .site-footer {
@@ -465,7 +577,7 @@ dd {
 
 @media (max-width: 900px) {
   .hero,
-  .two-column,
+  .summary-strip,
   .site-footer {
     grid-template-columns: 1fr;
   }
@@ -475,8 +587,12 @@ dd {
     gap: 28px;
   }
 
-  .direction-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .publication-group {
+    grid-template-columns: 1fr;
+  }
+
+  .group-label {
+    position: static;
   }
 }
 
@@ -500,12 +616,8 @@ dd {
     grid-template-columns: 48px 1fr;
   }
 
-  .direction-grid {
+  .publication-card {
     grid-template-columns: 1fr;
-  }
-
-  .direction-grid article {
-    min-height: 210px;
   }
 
   .line-card {
